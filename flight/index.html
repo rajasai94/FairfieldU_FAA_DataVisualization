@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title>Hello World!</title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./components/materialize/css/materialize.min.css">
+  <script src="../Build/Cesium/Cesium.js"></script>
+  <style>
+      @import url(../Build/Cesium/Widgets/widgets.css);
+      html, body {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      }
+  </style>
+</head>
+<body>    
+    <div class="view-modes">
+        <button class="view-buttons cesium-button" onclick="viewTopDown()">View Top Down</button>
+        <button class="view-buttons cesium-button" onclick="viewSide()">View Side</button>
+        <button class="view-buttons cesium-button" onclick="viewAircraft()">View Aircraft</button>
+        <button class="view-buttons cesium-button" onclick="viewCoordinates()">View Coordinates</button>
+        <button class="view-buttons cesium-button" onclick="closeDesc();resetCamera()">Close View</button>
+    </div>
+    <div class="description-container ">
+        <div class="flight-image"></div>
+        <div class="flight-heading">
+            <div class="flight-name">
+                <div class="option-item">
+                    <span id="flight-name"></span>
+                </div>
+                <div>
+                    United Airways
+                </div>
+            </div>
+            <div class="view-section" onclick="viewAircraft()">
+                <i class="fa fa-cube fa-2x"></i>
+                <span>3D View</span>
+            </div>
+        </div>
+        <div class="flight-details">
+            <div class="flight-from">
+                <span class="airport-code">MDW</span>
+                <div class="airport-name">Chicago</div>
+            </div>
+            <div class="flight-logo">
+                <i class="fa fa-fighter-jet fa-2x"></i>
+            </div>
+            <div class="flight-to">
+                <span class="airport-code">LAX</span>
+                <div class="airport-name">Los Angeles</div>
+            </div>
+        </div>
+        
+        <div class="options-content hide" id="option-content">
+            
+            <div class="option-item">
+                <input type="checkbox" id="show-points">
+                <label for="show-points">Track Points</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="show-lines">   
+                <label for="show-lines">Track Lines</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="show-sua">
+                <label for="show-sua">SUAs</label>                
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="show-airspace">
+                <label for="show-airspace">Airspace</label>                
+            </div>
+            <!-- <div class="option-item">
+                <p>Trail: <span id="trail"></span></p>
+                <p>Lead: <span id="lead"></span></p>
+            </div> -->
+        </div> 
+        <button class="close-button" onclick="closeDesc();resetCamera()">
+            close
+        </button>
+    </div>
+    <div class="flights">
+        <div class="main-header">Project</div>
+        <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header">Flights</div>
+                    <div class="collapsible-body">
+                        <ul id="flights-list">
+                                
+                        </ul> 
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Boundaries</div>
+                    <div class="collapsible-body">
+                        <ul id="boundaries-list">
+                                
+                        </ul>
+                    </div>
+                </li>
+            </ul>          
+    </div>
+    
+    <div id="cesiumContainer" class="fullSize"></div>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./components/materialize/js/materialize.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/modules/variables.js"></script>
+    <script src="./js/modules/httpService.js"></script>
+    <script src="./js/modules/addFlights.js"></script>
+    <script src="./js/modules/addBoundaries.js"></script>
+    <script src="./js/modules/trackFlight.js"></script>
+    <script src="./js/modules/trackingPoints.js"></script>
+    <script src="./js/modules/trackingLines.js"></script>
+    <script src="./js/modules/elevation.js"></script>
+    <script src="./js/modules/sua.js"></script>
+    <script src="./js/modules/airspace.js"></script>
+    <script src="./js/modules/showCoordinates.js"></script>
+    <script src="./js/modules/flightViewModes.js"></script>
+    <script src="./js/modules/resetCamera.js"></script>
+</body>
+</html>

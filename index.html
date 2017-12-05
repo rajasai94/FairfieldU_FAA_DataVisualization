@@ -1,124 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-  <!-- Use correct character set. -->
-  <meta charset="utf-8">
-  <!-- Tell IE to use the latest, best version. -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <title>Hello World!</title>
-  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./components/materialize/css/materialize.min.css">
-  <script src="../Build/Cesium/Cesium.js"></script>
-  <style>
-      @import url(../Build/Cesium/Widgets/widgets.css);
-      html, body {
-          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
-      }
-  </style>
+<title>Cesium</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<style>
+body {
+    font-family: sans-serif;
+}
+
+dt {
+    margin-top: 7px;
+}
+
+dd {
+    margin-top: 7px;
+}
+
+li {
+    margin-top: 3px;
+}
+
+ul {
+    list-style-type: none;
+}
+</style>
 </head>
 <body>
-  <!--<div id="cesiumContainer"></div>-->
-
-    
-    <!--<div id="loadingOverlay">
-        <h1>Loading...</h1>
-    </div>-->
-    <div class="view-modes">
-        <button class="view-buttons cesium-button" onclick="viewTopDown()">View Top Down</button>
-        <button class="view-buttons cesium-button" onclick="viewSide()">View Side</button>
-        <button class="view-buttons cesium-button" onclick="viewAircraft()">View Aircraft</button>
-        <button class="view-buttons cesium-button" onclick="viewCoordinates()">View Coordinates</button>
-        <button class="view-buttons cesium-button" onclick="resetCamera()">Close View</button>
-    </div>
-    <div class="flights">
-        <div class="main-header">Project</div>
-        <!-- <div class="flights-heading">
-            <span class="heading">Flights</span>
-            <span class="toggle-flights-info" onclick="toggleFlightData()"><i id="toggle-flight" class="fa fa-chevron-down"></i></span>
-           
-        </div>
-        <ul id="flights-list">
-            
-        </ul>  -->
-        <!-- <div class="boundaries-heading">
-            <span class="heading">Boundaries</span>
-            <span class="toggle-boundary-info" onclick="toggleBoundaryData()"><i id="toggle-boundary" class="fa fa-chevron-down"></i></span>
-        </div>
-        <ul id="boundaries-list">
-            
-        </ul>  -->
-        <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header">Flights</div>
-                    <div class="collapsible-body">
-                        <ul id="flights-list">
-                                
-                        </ul> 
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header">Boundaries</div>
-                    <div class="collapsible-body">
-                        <ul id="boundaries-list">
-                                
-                        </ul>
-                    </div>
-                </li>
-            </ul>    
-        <div class="options-heading hide" id="options-heading"> 
-            <!-- <span class="heading">Selected Flight</span> -->
-        </div>
-        <div class="options-content hide" id="option-content">
-            <div class="option-item">
-                <span id="flight-name"></span>
-            </div>
-            <div class="option-item">
-                <input type="checkbox" id="show-points">
-                <label for="show-points">Track Points</label>
-            </div>
-            <div class="option-item">
-                <input type="checkbox" id="show-lines">   
-                <label for="show-lines">Track Lines</label>
-            </div>
-            <!-- <div class="option-item">
-                <input type="checkbox" id="show-elevation"> 
-                <label for="show-elevation">Show Elevation</label>                
-            </div> -->
-            <div class="option-item">
-                <input type="checkbox" id="show-sua">
-                <label for="show-sua">SUAs</label>                
-            </div>
-            <div class="option-item">
-                <input type="checkbox" id="show-airspace">
-                <label for="show-airspace">Airspace</label>                
-            </div>
-            <div class="option-item">
-                <p>Trail: <span id="trail"></span></p>
-                <p>Lead: <span id="lead"></span></p>
-            </div>
-        </div>            
-    </div>
-    
-    <div id="cesiumContainer" class="fullSize"></div>
-  <script src="./js/jquery-3.2.1.min.js"></script>
-  <script src="./components/materialize/js/materialize.min.js"></script>
-  <script src="./js/script.js"></script>
-  <script src="./js/modules/variables.js"></script>
-  <script src="./js/modules/httpService.js"></script>
-  <script src="./js/modules/addFlights.js"></script>
-  <script src="./js/modules/addBoundaries.js"></script>
-  <script src="./js/modules/trackFlight.js"></script>
-  <script src="./js/modules/trackingPoints.js"></script>
-  <script src="./js/modules/trackingLines.js"></script>
-  <script src="./js/modules/elevation.js"></script>
-  <script src="./js/modules/sua.js"></script>
-  <script src="./js/modules/airspace.js"></script>
-  <script src="./js/modules/showCoordinates.js"></script>
-  <script src="./js/modules/flightViewModes.js"></script>
-  <script src="./js/modules/resetCamera.js"></script>
+  <div>
+    <img src="Apps/Sandcastle/images/Cesium_Logo_Color_Overlay.png" style='width: 400px' />
+    <ul>
+      <li><b>Local links</b>
+        <dl>
+          <dt>
+            <a href="Build/Documentation/index.html">Documentation</a>
+          </dt>
+          <dd>The complete API documentation and reference.</dd>
+          <dt>
+            <a href="Apps/HelloWorld.html">Hello World</a>
+          </dt>
+          <dd>
+            The simplest possible Cesium application.
+          </dd>
+          <dt>
+            <a href="Apps/CesiumViewer/index.html">Cesium Viewer</a>
+          </dt>
+          <dd>
+            A simple Cesium reference application which allows you to browse the globe and select from a variety of imagery and terrain
+            layers as well as load CZML, GeoJSON, and other formats supported by Cesium.
+          </dd>
+          <dt>
+            <a href="Apps/Sandcastle/index.html">Sandcastle</a>
+          </dt>
+          <dd>Cesium's live code editor and example gallery. Browse examples highlighting features of the Cesium API and edit and run
+            them all in your web browser. Cesium applications created in Sandcastle can even be saved and downloaded.</dd>
+        </dl>
+      <li><b>Unit Tests</b>
+        <dl>
+          <dt>
+            <a href="Specs/SpecRunner.html">Run all tests</a>
+          </dt>
+          <dt>
+            <a href="Specs/SpecRunner.html?webglValidation">Run with WebGL validation</a>
+          </dt>
+          <dt>
+            <a href="Specs/SpecRunner.html?webglStub">Run with WebGL stub</a>
+          </dt>
+          <dt>
+            <a href="Specs/SpecRunner.html?category=none">Select a test to run</a>
+          </dt>
+          <dt>
+            <a href="Specs/SpecRunner.html?category=WebGL">Run only WebGL tests</a>
+          </dt>
+          <dt>
+            <a href="Specs/SpecRunner.html?category=All&amp;not=WebGL">Run only non-WebGL tests</a>
+          </dt>
+        </dl></li>
+      <li><b>External links</b>
+        <dl>
+          <dt>
+            <a href="//cesiumjs.org">Homepage</a>
+          </dt>
+          <dd>The official Cesium homepage</dd>
+          <dt>
+            <a href="//cesiumjs.org/tutorials.html">Tutorials</a>
+          </dt>
+          <dd>Step by step guides for learning to use Cesium</dd>
+          <dt>
+            <a href="//cesiumjs.org/forum.html">Forum</a>
+          </dt>
+          <dd>Our forum and mailing list, questions and feedback welcome from all skill levels</dd>
+          <dt>
+            <a href="//github.com/AnalyticalGraphicsInc/cesium">GitHub</a>
+          </dt>
+          <dd>The official Cesium GitHub repository</dd>
+          <dt>
+            <a href="//cesiumjs.org/demos.html">Showcases</a>
+          </dt>
+          <dd>Demos and information about projects using Cesium</dd>
+          <dt>
+            <a href="http://webglreport.com/">WebGL Report</a>
+          </dt>
+          <dd>Provides technical information about WebGL capabilities supported by your browser</dd>
+        </dl></li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+      if (window.location.protocol === 'file:') {
+          document.body.innerHTML = ""
+          document.write('<p><b>This file must be hosted in a web server.</br>');
+          document.write('See our <a href="https://cesiumjs.org/2013/04/12/Cesium-up-and-running/">Getting Started</a> ');
+          document.write('tutorial for a step-by-step guide.</b></p>');
+      }
+  </script>
 </body>
 </html>

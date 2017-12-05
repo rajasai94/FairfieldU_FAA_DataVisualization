@@ -1,0 +1,7 @@
+{
+  "name": "project",
+  "description": "project",
+  "repository": "",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}

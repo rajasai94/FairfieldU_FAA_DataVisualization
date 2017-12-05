@@ -1,0 +1,388 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* font-family: 'Lobster', cursive;
+font-family: 'Roboto', sans-serif; */
+
+html, body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  /*background: red;*/
+}
+
+#cesiumContainer {
+  width: 80%;
+  height: 100%; 
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden;
+}
+
+.view-modes {
+  position: fixed;
+  z-index: 999;
+  top: 60px;
+  left: 25vw;
+  /*width: 150px;*/
+  height: 30px;
+  display: none;
+}
+
+.view-modes-active {
+  display: block !important;
+}
+
+.description-container {
+  z-index: 5;
+  position: fixed;
+  left: -20vw;
+  top: 0px;
+  overflow: hidden;
+  height: 100%;
+  color: #333; 
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  transition: all 300ms ease-in;
+}
+
+.description-container-active {
+  left: 0 !important;
+}
+
+.flight-image {
+  height: 150px;
+  width: 100%;
+  background: url('https://cdn.jetphotos.com/400/5/70761_1499656767.jpg?v=0');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.flight-heading {
+  height: 65px;
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+}
+
+.flight-heading .flight-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #fff;
+  width: 80%;
+  padding: 10px 0;
+}
+
+.flight-heading .view-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 20%;
+  cursor: pointer;
+}
+
+.flight-heading .view-section span {
+  font-size: 70%;
+  margin-top: 10px;
+}
+
+.flight-heading .flight-name .options-heading {
+  font-weight: bold;
+}
+
+.flight-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  background: #eee;
+  color: #333;
+  padding: 0 10px;
+}
+
+.flight-details .flight-from,
+.flight-details .flight-logo,
+.flight-details .flight-to {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+
+.flight-details .flight-from .airport-code,
+.flight-details .flight-to .airport-code {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+
+.flight-details .flight-from .airport-name,
+.flight-details .flight-to .airport-name {
+  font-size: 70%;
+  white-space: nowrap;
+}
+
+.close-button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  min-height: 40px;
+  border: 0px;
+  text-transform: capitalize;
+}
+
+.flights {
+  /*position: absolute;
+  right: 0;
+  top: 0px;*/
+  overflow: hidden;
+  height: 100%;
+  color: #333; 
+  width: 20%;
+  background-color: #fff;
+  transition: all 300ms ease-in;
+}
+
+.flights .main-header {
+  width: 100%;
+  padding-top: 10px;
+  text-decoration: underline;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: 'Lobster', cursive;
+}
+
+#flights-list {
+  padding: 0;
+  margin: 0;
+  height: 0;
+  /* overflow: auto; */
+  list-style-type: none;
+  transition: all 300ms ease-in;
+}
+/* 
+.flights-list-active {
+  height: 400px !important;
+}
+
+#toggle-flight, #toggle-boundary {
+  transition: all 300ms ease-in;
+  cursor: pointer;
+} */
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+/* 
+#flights-list::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+	background-color: #ccc;
+}
+
+#flights-list::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #ccc;
+}
+
+#flights-list::-webkit-scrollbar-thumb
+{
+	background-color: #333;
+}
+
+.boundaries-heading, .flights-heading, .options-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;
+  margin: 5px 0;
+}
+
+.boundaries-heading .heading, .flights-heading .heading, .options-heading .heading {
+  text-transform: uppercase;
+} */
+
+#boundaries-list {
+  padding: 0;
+  margin: 0;
+  height: 0;
+  /* overflow: auto; */
+  list-style-type: none;
+  background-color: #ccc;
+  transition: all 300ms ease-in;
+}
+/*
+.boundaries-list-active {
+  height: 400px !important;
+}
+
+.boundaries-list-active .toggle-boundary-info {
+  transform: rotate(180deg);
+}
+
+ #boundaries-list::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+	background-color: #ccc;
+}
+
+#boundaries-list::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #ccc;
+}
+
+#boundaries-list::-webkit-scrollbar-thumb
+{
+	background-color: #333;
+} */
+
+.hide-flights-bar {
+  right: -200px !important;
+}
+
+#flights-list li,
+#boundaries-list li {
+  width: 100%;
+  padding: 5px 15px;
+  text-align: left;
+  text-transform: capitalize;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 300ms ease-in;
+}
+
+#flights-list li .fa-times {
+  display: none;
+  float: right;
+}
+
+#flights-list li:hover,
+#boundaries-list li:hover {
+  background-color: #eee;
+}
+
+.flight-active {
+  background-color: #eee;
+  box-shadow: inset 3px 0 0 #333;
+}
+
+.flight-active .fa-times {
+  color: #f44336;
+  display: block !important;
+}
+
+.flight-info {
+  display: none;
+  justify-content: space-around;
+  padding: 10px 0;
+  transition: all 300ms ease-in;
+}
+
+.flight-active .flight-info {
+  display: flex;
+}
+
+.reset {
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  top:0;
+  padding: 5px;
+}
+
+.flights-heading .toggle-class {
+  position: absolute;
+  left: -20px;
+  top : 0;
+  font-size: 80%;
+  cursor: pointer;
+  width: 20px;
+  text-align: center;
+  background: #333;
+  transform: rotate(0deg);
+  transition: all 300ms ease-in;
+}
+
+.invert {
+  transform: rotate(180deg) !important;
+}
+
+.boundary-item {
+  box-shadow: inset 0px 0 #2ecc71;
+  transition: all 300ms ease-in;
+}
+
+.boundary-visible {
+  box-shadow: inset 3px 0 #2ecc71;
+}
+
+.options-content {
+  /* background-color: rgba(38, 41, 45, 0.5); */
+  padding: 15px 0;
+}
+
+.options-content .option-item {
+  width: 100%;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.options-content .option-item label{
+  color: #333;
+}
+#flight-name {
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  margin: 10px auto;
+}
+.hide {
+  display: none;
+}
+.collapsible-body {
+  min-height: 350px;
+  padding: 0 !important;
+  overflow: auto;
+}
+
+.collapsible-body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+	background-color: #ccc;
+}
+
+.collapsible-body::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #ccc;
+}
+
+.collapsible-body::-webkit-scrollbar-thumb
+{
+	background-color: #333;
+}
