@@ -35,7 +35,6 @@ var addTrackingPath = function(lineColor) {
                 pathPositions.push(flightsData[i].ALTITUDE)
             }
         }
-        console.log(pathPositions);
         trackingPath = viewer.entities.add({
             name : 'Plane tracking path',
             polyline : {

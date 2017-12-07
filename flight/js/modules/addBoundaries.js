@@ -17,7 +17,7 @@ getJSON('/getBoundariesData',function(err, data) {
   if (err != null) {
     alert('Something went wrong: ' + err);
   } else {
-    console.log("boundaries data: ",data);
+    // console.log("boundaries data: ",data);
     boundaries = data;
     listBoundaries(boundaries);
   }
