@@ -1,7 +1,7 @@
 // Load Cesium container
 
 var imageryProviders = Cesium.createDefaultImageryProviderViewModels();
-var selectedImageryProviderIndex = 6; 
+var selectedImageryProviderIndex = 9; 
 
 var viewer = new Cesium.Viewer('cesiumContainer', {
     infoBox                         : false,
