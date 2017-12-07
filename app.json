@@ -1,7 +1,7 @@
 {
-  "name": "project",
-  "description": "project",
-  "repository": "",
+  "name": "AeroGlobe_Visualization",
+  "description": "AeroGlobe_Visualization",
+  "repository": "https://github.com/rajasai94/FairfieldU_FAA_DataVisualization",
   "keywords": ["node", "express", "static"],
   "image": "heroku/nodejs"
 }
