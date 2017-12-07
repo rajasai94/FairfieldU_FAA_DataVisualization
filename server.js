@@ -14,8 +14,8 @@
     var DBurl = 'mongodb://localhost:27017/spaceApp25'; // mongodb url
 
     // local data import
-    // var flightDataExport = require('./flightData');
-    // var boundaryDataExport = require('./boundaryData');
+    var flightDataExport = require('./flightData');
+    var boundaryDataExport = require('./boundaryData');
     
     var yargs = require('yargs').options({
         'port' : {
@@ -112,17 +112,17 @@
      */
     app.get('/getFlightsData', function(req, res) {
         // local data
-        // res.send(flightDataExport.flightData);
+        res.send(flightDataExport.flightData);
 
         //DB data
-        MongoClient.connect(DBurl, function (err, db) {
+        /* MongoClient.connect(DBurl, function (err, db) {
 
             /**
              * @param successCallback
              * this function is called when we successfully retrie flight data
              * from out database.
              * this function sends back the flight data to the user as response.
-             */
+             *
             var successCallback = function(data) {
                 res.send(data);
             }
@@ -153,22 +153,22 @@
                     res.send("error establishing database connection");
                 }                 
             }
-        });
+        }); */
     });
 
     app.get('/getBoundariesData', function(req, res) {
          // local data
-        //  res.send(boundaryDataExport.boundaryData.features);
+        res.send(boundaryDataExport.boundaryData.features);
         
         // DB DAta
-         MongoClient.connect(DBurl, function (err, db) {
+         /* MongoClient.connect(DBurl, function (err, db) {
 
             /**
              * @param successCallback
              * this function is called when we successfully retrie flight data
              * from out database.
              * this function sends back the flight data to the user as response.
-             */
+             *
             var successCallback = function(data) {
                 res.send(data);
             }
@@ -199,7 +199,7 @@
                     res.send("error establishing database connection");
                 }                 
             }
-        });
+        }); */
     });
 
     // one time action 
